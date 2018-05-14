@@ -8,9 +8,6 @@ node {
         sh 'npm config set registry http://registry.npmjs.org/'
 
    stage 'Mocha testing'
-        sh 'npm cache clean -f'
-        sh 'sudo npm install -g n'
-        sh 'n stable'
         sh '../node_modules/mocha/bin/mocha'
 
    stage 'Cleanup'
