@@ -3,18 +3,19 @@ var winston = require("winston")
 var WFirehose = require('winston-firehose')
 var AWS = require("aws-sdk")
 
-AWS.config.update({region:"us-east-1"})
+AWS.config.update({region:"us-west-1"})
 var cwevents = new AWS.CloudWatchEvents({apiVersion: "2015-10-07"})
 var cw = new AWS.CloudWatch({apiVersion: "2010-08-01"})
 
 var version = process.env.HELLOWORLD_VERSION
 var hostname = process.env.HOSTNAME
 
+/*
 var logger = new (winston.Logger)({
   transports: [new WFirehose({
     'streamName': 'FirehoseLogs',
     'firehoseOptions': {
-      'region': 'us-east-1'
+      'region': 'us-west-1'
     }
   })]
 })
@@ -25,6 +26,7 @@ logger.rewriters.push(function(level, msg, meta) {
   meta.appname = "helloworld"
   return meta
 })
+*/
 
 http.createServer(function (request, response) {
   var event = {
@@ -52,18 +54,18 @@ http.createServer(function (request, response) {
    response.end('Hello World\n')
    cwevents.putEvents(event, function(err, data) {
     if (err) {
-      logger.error("error", "an error occurred when creating an event", {error: err})
+      //logger.error("error", "an error occurred when creating an event", {error: err})
     } else {
-      logger.info("created event", {entries: data.Entries})
+      //logger.info("created event", {entries: data.Entries})
     }
   })
    cw.putMetricData(metric, function(err, data) {
     if (err) {
-      logger.error("an error occurred when creating a metric", {error: err});
+      //logger.error("an error occurred when creating a metric", {error: err});
     } else {
-      logger.info("created metric", {data: JSON.stringify(data)});
+      //logger.info("created metric", {data: JSON.stringify(data)});
     }
   })
 }).listen(3000)
 
-logger.info("Server running")
+//logger.info("Server running")
