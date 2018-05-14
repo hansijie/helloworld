@@ -8,7 +8,7 @@ node {
         sh 'npm config set registry http://registry.npmjs.org/'
         sh 'npm install'
 
-   stage 'Mocha testing'
+   stage 'Mocha test'
         sh 'npm test'
 
    stage 'Cleanup'
