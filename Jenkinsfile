@@ -10,7 +10,7 @@ node {
    stage 'Mocha testing'
         sh 'npm cache clean -f'
         sh 'sudo npm install -g n'
-        sh 'sudo n stable'
+        sh 'n stable'
         sh '../node_modules/mocha/bin/mocha'
 
    stage 'Cleanup'
