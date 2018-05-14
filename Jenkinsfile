@@ -8,9 +8,7 @@ node {
         sh 'npm config set registry http://registry.npmjs.org/'
 
    stage 'Mocha test'
-        sh 'su - ec2-user'
-        sh 'cd /var/lib/jenkins/workspace/helloworldnew'
-        sh 'npm test'
+        sh '../node_modules/mocha/bin/mocha'
 
    stage 'Cleanup'
         echo 'prune and cleanup...'
