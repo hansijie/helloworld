@@ -8,7 +8,7 @@ node {
         sh 'npm config set registry http://registry.npmjs.org/'
 
    stage 'Mocha testing'
-        sh '../node_modules/mocha/bin/mocha'
+        sh './test.sh'
 
    stage 'Cleanup'
         echo 'prune and cleanup...'
