@@ -6,10 +6,14 @@ node {
 
    stage 'Setup env'
         sh 'npm config set registry http://registry.npmjs.org/'
-        sh 'npm install'
+        sh 'cd ..'
+        sh 'npm install mocha --save-dev'
+        sh 'npm install zombie --save-dev'
+        sh 'npm install winston --save-dev'
 
    stage 'Mocha test'
-        sh './node_modules/mocha/bin/mocha'
+        sh 'cd helloworldnew'
+        sh 'npm test'
 
    stage 'Cleanup'
         echo 'prune and cleanup...'
