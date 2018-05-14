@@ -7,7 +7,7 @@ node {
    stage 'Setup env'
         sh 'npm config set registry http://registry.npmjs.org/'
 
-   stage 'Mocha test'
+   stage 'Mocha testing'
         sh 'npm cache clean -f'
         sh 'npm install -g n'
         sh 'n stable'
