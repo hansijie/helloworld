@@ -11,8 +11,9 @@ node {
         sh './node_modules/mocha/bin/mocha'
 
    stage 'Cleanup'
-        echo 'prune and cleanup'
+        echo 'prune and cleanup...'
         sh 'npm prune'
         sh 'rm node_modules -rf'
 }
+
 
