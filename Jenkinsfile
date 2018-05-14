@@ -4,7 +4,7 @@ node {
    stage 'Checkout'
         checkout scm
 
-   stage 'Setup'
+   stage 'Setup env'
         sh 'npm install'
 
    stage 'Mocha test'
