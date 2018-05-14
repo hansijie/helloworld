@@ -7,7 +7,7 @@ node {
    stage 'Setup'
         sh 'npm install'
 
-   stage 'Mocha testing'
+   stage 'Mocha test'
         sh './node_modules/mocha/bin/mocha'
 
    stage 'Cleanup'
