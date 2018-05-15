@@ -9,7 +9,6 @@ node {
 
    stage 'Mocha testing'
         sh 'node helloworld.js &'
-        sh 'curl http://localhost:3000'
 
    stage 'Cleanup'
         echo 'prune and cleanup...'
