@@ -1,6 +1,6 @@
 var http = require("http")
 var winston = require("winston")
-var WFirehose = require('winston-firehose')
+//var WFirehose = require('winston-firehose')
 var AWS = require("aws-sdk")
 
 AWS.config.update({region:"us-west-1"})
