@@ -8,7 +8,7 @@ node {
         sh 'npm config set registry http://registry.npmjs.org/'
 
    stage 'Mocha testing'
-        sh 'node helloworld.js'
+        sh 'node helloworld.js &'
         sh 'curl http://localhost:3000'
 
    stage 'Cleanup'
